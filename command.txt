@@ -1,0 +1,1 @@
+ghdl vhdl_script.py notgate.vhdl andgate.vhdl nandgate.vhdl nandgate_tb.vhdl

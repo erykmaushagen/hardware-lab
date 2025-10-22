@@ -1,0 +1,1 @@
+ghdl vhdl_script.py generic_declaration.vhdl generic_declaration_tb.vhdl
