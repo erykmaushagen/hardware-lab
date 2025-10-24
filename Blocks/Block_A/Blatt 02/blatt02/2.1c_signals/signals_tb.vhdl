@@ -25,29 +25,29 @@ begin
     c <= a and b;		--c ist 0
     wait for 10 ns;
     c <= a or b;		--c ist 1
-    wait for 10 ns;
+    wait for 10 ns;s
     -- Ab hier folgen die eigenen Paare
     -- Tupel (L, Z)
     a <= 'L';
     b <= 'Z';
     wait for 10 ns;
-    c <= a and b;		--c ist 
+    c <= a and b;		--c ist 0
     wait for 10 ns;
-    c <= a or b;		--c ist 
+    c <= a or b;		--c ist x
     wait for 10 ns;
     -- Tupel (0, 1)
      a <= '0';
     b <= '1';
     wait for 10 ns;
-    c <= a and b;		--c ist 
+    c <= a and b;		--c ist 0
     wait for 10 ns;
-    c <= a or b;		--c ist 
+    c <= a or b;		--c ist 1
     wait for 10 ns;
     -- Tupel (H , Z)
      a <= 'H';
     b <= 'Z';
     wait for 10 ns;
-    c <= a and b;		--c ist 0
+    c <= a and b;		--c ist x
     wait for 10 ns;
     c <= a or b;		--c ist 1
     wait for 10 ns;
@@ -55,17 +55,17 @@ begin
     a <= 'H';
     b <= 'X';
     wait for 10 ns;
-    c <= a and b;		--c ist 
+    c <= a and b;		--c ist x
     wait for 10 ns;
-    c <= a or b;		--c ist 
+    c <= a or b;		--c ist 1
     wait for 10 ns;
     -- Tupel (L, W)
      a <= 'L';
     b <= 'W';
     wait for 10 ns;
-    c <= a and b;		--c ist 
+    c <= a and b;		--c ist 0
     wait for 10 ns;
-    c <= a or b;		--c ist 
+    c <= a or b;		--c ist x
     wait for 10 ns;
     -- Tupel (L , Z)
      a <= 'L';
@@ -73,21 +73,21 @@ begin
     wait for 10 ns;
     c <= a and b;		--c ist 0
     wait for 10 ns;
-    c <= a or b;		--c ist 1
+    c <= a or b;		--c ist x
     wait for 10 ns;
     -- Tupel (0, H)
      a <= '0';
     b <= 'H';
     wait for 10 ns;
-    c <= a and b;		--c ist 
+    c <= a and b;		--c ist 0
     wait for 10 ns;
-    c <= a or b;		--c ist 
+    c <= a or b;		--c ist 1
     wait for 10 ns;
     -- Tupel (1 , Z)
      a <= '1';
     b <= 'Z';
     wait for 10 ns;
-    c <= a and b;		--c ist 0
+    c <= a and b;		--c ist x
     wait for 10 ns;
     c <= a or b;		--c ist 1
     wait for 10 ns;
