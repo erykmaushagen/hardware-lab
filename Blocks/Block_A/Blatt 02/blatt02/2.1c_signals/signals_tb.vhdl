@@ -25,9 +25,9 @@ begin
     c <= a and b;		--c ist 0
     wait for 10 ns;
     c <= a or b;		--c ist 1
-    wait for 10 ns;s
+    wait for 10 ns;
     -- Ab hier folgen die eigenen Paare:
-    -- Tupel (L, Z)
+    -- Tupel (X, W)
     a <= 'X';
     b <= 'W';
     wait for 10 ns;
@@ -68,7 +68,7 @@ begin
     c <= a or b;		--c ist x
     wait for 10 ns;
     -- Tupel (L , Z)
-     a <= '0';
+     a <= 'L';
     b <= 'Z';
     wait for 10 ns;
     c <= a and b;		--c ist 0
