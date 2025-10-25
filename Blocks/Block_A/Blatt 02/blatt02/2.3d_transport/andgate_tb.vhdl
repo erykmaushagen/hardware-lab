@@ -23,6 +23,7 @@ begin
   -- creates an instance of andgate
   and_g: andgate port map(input1 => a, input2 => b, and_result => c);
 
+  -- teste logische Korrektheit:
   process begin
     a <= '0';
     b <= '0';
@@ -39,8 +40,32 @@ begin
     a <= 'X';
     b <= 'W';
     wait for 10 ns;
+
+    
+    -- Stabilisiere das Signal:
+    a <= '0'; 
+    b <= '0';
+    wait for 30 ns; 
+    -- Ausgangssignal nun auf '0', simuliere Impuls: 
+
+    a <= '1'; 
+    b <= '1';
+    
+    -- Check 1: Nach 14ns darf sich nichts geändert haben (von '0' auf '1'),sonst Änderung zu früh!
+    wait for 14 ns;
+    assert c /= '1' 
+      report "FEHLER: Signal hat sich nach 14 ns bereits geändert (zu früh)!" 
+      severity error;
+    
+    -- Check 2: Nach 16ns muss sich etwas geändert haben (von'0' auf '1' annehmen)
+    wait for 2 ns;
+    assert c = '1' 
+      report "FEHLER: Signal hat sich nach 16 ns nicht geändert (Delay funktioniert nicht)!" 
+      severity error;
+    
+    report "Test: Transport Delay korrekt";
+
     assert false report "End of test";
     wait;
   end process;
 end test;
-
