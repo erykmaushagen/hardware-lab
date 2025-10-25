@@ -1,0 +1,7 @@
+v 4
+file . "xorgate_tb.vhdl" "58a881ddb320606ce9bc8163a432fe695653d71b" "20251025203908.965":
+  entity xorgate_tb at 1( 0) + 0 on 13;
+  architecture test of xorgate_tb at 7( 82) + 0 on 14;
+file . "xorgate.vhdl" "e0378400722d5bb2b8bbe6648c41c2214e1671b5" "20251025203908.906":
+  entity xorgate at 1( 0) + 0 on 11;
+  architecture rtl of xorgate at 12( 193) + 0 on 12;
