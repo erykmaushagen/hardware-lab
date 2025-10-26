@@ -24,7 +24,11 @@ begin
   and_g: andgate port map(input1 => a, input2 => b, and_result => c);
 
   -- teste logische Korrektheit:
+  
   process begin
+    -- *******************************
+    -- TEST: logischer Test von booleschen Operatoren aus b)
+    -- *******************************
     a <= '0';
     b <= '0';
     wait for 10 ns;
@@ -41,7 +45,10 @@ begin
     b <= 'W';
     wait for 10 ns;
 
-    
+    -- *******************************
+    -- TEST: Überprüfung von 'transport-after'-delay
+    -- *******************************
+
     -- Stabilisiere das Signal:
     a <= '0'; 
     b <= '0';
