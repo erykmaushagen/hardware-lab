@@ -22,7 +22,7 @@ begin
     a <= '0';
     b <= '0';
   
-  wait for 10 ns;
+    wait for 10 ns;
 -- ADD MORE TEST CASES BELOW
 -- Weitere Testfälle einfügen
     a <= '0';
