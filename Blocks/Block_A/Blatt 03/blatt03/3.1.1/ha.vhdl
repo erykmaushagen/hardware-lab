@@ -12,6 +12,7 @@ end ha;
 
 architecture rtl of ha is
 begin
--- missing
+    s <= a xor b; 
+    c <= a and b; 
 -- missing
 end rtl;
