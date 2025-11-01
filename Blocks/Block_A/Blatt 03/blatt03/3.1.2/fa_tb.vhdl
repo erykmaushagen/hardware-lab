@@ -18,12 +18,47 @@ architecture test of fa_tb is
 signal a, b, cin, cout, sum : std_ulogic;
 begin
   -- DEFINE PORTMAP 
-  -- Portmap definieren
-  full_adder: fa port map(??);
+
+  full_adder: fa port map(a => a, b => b, cin => cin, cout => cout, sum => sum);
+  
 
   process begin
-    -- IMPLEMENT TEST HERE
-    -- Test hier implementieren
+    -- 2^3 test cases nach Wertetablle
+    a <= '0';
+    b <= '0';
+    cin <= '0';
+    wait for 10 ns; 
+    a <= '0';
+    b <= '1';
+    cin <= '0';
+    wait for 10 ns; 
+    a <= '1';
+    b <= '0';
+    cin <= '0';
+    wait for 10 ns; 
+    a <= '1';
+    b <= '1';
+    cin <= '0';
+    wait for 10 ns; 
+    a <= '0';
+    b <= '0';
+    cin <= '1';
+    wait for 10 ns; 
+    a <= '0';
+    b <= '1';
+    cin <= '1';
+    wait for 10 ns; 
+    a <= '1';
+    b <= '0';
+    cin <= '1';
+    wait for 10 ns; 
+    a <= '1';
+    b <= '1';
+    cin <= '1';
+    wait for 10 ns; 
+
+
+    assert false report "End of test";
     wait;
   end process;
 end test;
