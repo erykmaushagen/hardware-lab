@@ -1,2 +1,4 @@
 # hide venv
 venv/
+
+.DS_Store
