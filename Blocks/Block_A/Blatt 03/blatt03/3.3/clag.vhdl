@@ -14,3 +14,16 @@ end clag;
 
 architecture rtl of clag is
 -- implement clag here
+begin 
+  -- Berechnung aller Carries auf Basis von input-generate/propagate Carries
+  cout(0) <= gin(0) or (pin(0) and cin);
+  cout(1) <= gin(1) or (pin(1) and gin(0)) or (pin(1) and pin(0) and cin);
+  cout(2) <= gin(2) or (pin(2) and gin(1)) or (pin(2) and pin(1) and gin(0)) or (pin(2) and pin(1) and pin(0) and cin);
+  cout(3) <= gin(3) or (pin(3) and gin(2)) or (pin(3) and pin(2) and gin(1)) or (pin(3) and pin(2) and pin(1) and gin(0)) or (pin(3) and pin(2) and pin(1) and pin(0) and cin);
+
+  -- G und P als Ouput des CLA's
+  gout <= gin(3) or (pin(3) and gin(2)) or (pin(3) and pin(2) and gin(1)) or (pin(3) and pin(2) and pin(1) and gin(0));
+  pout <= pin(3) and pin(2) and pin(1) and pin(0);
+  
+
+end rtl;
