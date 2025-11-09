@@ -14,12 +14,14 @@ end demux14;
 
 architecture rtl of demux14 is
   --missing
+  -- not-Gatter anmelden
   component not_gate is
     port (
       input1     : in std_logic;
       not_output : out std_logic
     );
   end component;
+  -- and-Gatter anmelden
   component and_gate is
     port (
       input1     : in std_logic;

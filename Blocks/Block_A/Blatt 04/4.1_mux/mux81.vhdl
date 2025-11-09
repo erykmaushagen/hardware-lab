@@ -49,7 +49,7 @@ architecture rtl of mux81 is
     );
   end component;
 
-  -- Signale
+  -- Signale definieren 
   signal mult_1    : std_logic_vector(2 downto 0);
   signal mult_2    : std_logic_vector(2 downto 0);
   signal not_wire  : std_logic;

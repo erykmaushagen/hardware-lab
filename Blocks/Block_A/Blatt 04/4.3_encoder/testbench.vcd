@@ -1,0 +1,117 @@
+$date
+  Sun Nov  9 12:10:22 2025
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module encoder42_tb $end
+$var reg 4 ! i_tb[3:0] $end
+$var reg 2 " y_tb[1:0] $end
+$scope module encoder42_test $end
+$var reg 4 # i[3:0] $end
+$var reg 2 $ y[1:0] $end
+$var reg 1 % and_1 $end
+$var reg 1 & not_1 $end
+$scope module not_instance $end
+$var reg 1 ' input1 $end
+$var reg 1 ( not_output $end
+$var reg 1 ) notgate $end
+$upscope $end
+$scope module and_instance $end
+$var reg 1 * input1 $end
+$var reg 1 + input2 $end
+$var reg 1 , and_result $end
+$var reg 1 - and_gate $end
+$upscope $end
+$scope module or_instance_1 $end
+$var reg 1 . input1 $end
+$var reg 1 / input2 $end
+$var reg 1 0 or_result $end
+$var reg 1 1 or_gate $end
+$upscope $end
+$scope module or_instance_2 $end
+$var reg 1 2 input1 $end
+$var reg 1 3 input2 $end
+$var reg 1 4 or_result $end
+$var reg 1 5 or_gate $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0001 !
+b00 "
+b0001 #
+b00 $
+0%
+1&
+0'
+1(
+1)
+0*
+1+
+0,
+0-
+0.
+0/
+00
+01
+02
+03
+04
+05
+#10000000
+b0010 !
+b01 "
+b0010 #
+b01 $
+1%
+1*
+1,
+1-
+12
+14
+15
+#20000000
+b0100 !
+b10 "
+b0100 #
+b10 $
+0%
+0&
+1'
+0(
+0)
+0*
+0+
+0,
+0-
+1.
+10
+11
+02
+04
+05
+#30000000
+b1000 !
+b11 "
+b1000 #
+b11 $
+1&
+0'
+1(
+1)
+1+
+0.
+1/
+13
+14
+15
+#40000000
