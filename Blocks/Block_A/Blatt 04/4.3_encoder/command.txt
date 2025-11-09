@@ -1,1 +1,1 @@
-python vhdl_script.py encoder42.vhdl encoder42_tb.vhdl
+python vhdl_script.py not_gate.vhdl or_gate.vhdl and_gate_2.vhdl encoder42.vhdl encoder42_tb.vhdl
