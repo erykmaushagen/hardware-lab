@@ -51,7 +51,7 @@ begin
 
   --bitwise operation for each logic gate because the input signals are multilple-bit signals.
   --please complete the implementation based on the schema you designed.
-  -- instanziere das NOT-Gatter: 
+  -- instanziere die NOT-Gatter: 
   not_assignment : for i in 0 to 1 generate
     not_output : not_gate
     port map
