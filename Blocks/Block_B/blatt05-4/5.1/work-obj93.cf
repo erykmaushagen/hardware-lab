@@ -1,0 +1,7 @@
+v 4
+file . "D_Latch.vhdl" "53be52686823464fb30e7486d2fa8b61ad2ff9a6" "20220517000541.010":
+  entity d_latch at 1( 0) + 0 on 17;
+  architecture behavioral of d_latch at 11( 167) + 0 on 18;
+file . "SR_Latch.vhdl" "f760dcb5be82a5c49d8745e821d4bfed8ca4d314" "20220517000540.964":
+  entity sr_latch at 1( 0) + 0 on 15;
+  architecture behavioral of sr_latch at 11( 164) + 0 on 16;
