@@ -1,0 +1,7 @@
+v 4
+file . "jk_ff_tb.vhdl" "e54b11f2f8aa6b09b0aa84cfbaaf13c1ae17280b" "20251122223522.564":
+  entity jk_ff_tb at 1( 0) + 0 on 13;
+  architecture testbench of jk_ff_tb at 7( 76) + 0 on 14;
+file . "jk_flipflop.vhdl" "215b3d39d9a4460383f158e4970fa7742dc16ef2" "20251122223522.515":
+  entity jk_flipflop at 1( 0) + 0 on 11;
+  architecture bh of jk_flipflop at 11( 167) + 0 on 12;
