@@ -1,0 +1,10 @@
+v 4
+file . "SR_Latch_tb.vhdl" "04a17f7bade5d6599ed3024cb617cf74d135f656" "20251122115432.293":
+  entity sr_latch_tb at 1( 0) + 0 on 15;
+  architecture testbench of sr_latch_tb at 7( 85) + 0 on 16;
+file . "norgate.vhdl" "9356d8e23482414ea762ec223d4b604120ac6280" "20251122115432.162":
+  entity norgate at 1( 0) + 0 on 11;
+  architecture rtl of norgate at 13( 283) + 0 on 12;
+file . "SR_Latch.vhdl" "1ab87ce0a26bcf30704195f3adee32a8453cd7c6" "20251122115432.245":
+  entity sr_latch at 1( 0) + 0 on 13;
+  architecture behavioral of sr_latch at 11( 161) + 0 on 14;
