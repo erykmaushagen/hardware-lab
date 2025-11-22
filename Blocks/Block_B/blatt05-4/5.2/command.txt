@@ -1,1 +1,1 @@
-python vhdl_script.py ps_ff.vhdl ps_ff_tb.vhdl
+python vhdl_script.py not_gate.vhdl norgate.vhdl and_gate.vhdl SR_Latch.vhdl D_Latch.vhdl ps_ff.vhdl ps_ff_tb.vhdl

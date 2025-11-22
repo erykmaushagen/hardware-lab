@@ -1,0 +1,22 @@
+v 4
+file . "ps_ff_tb.vhdl" "2d7426883d8fb91864ddf7eeded17ed3a8440eb5" "20251122124524.095":
+  entity ps_ff_tb at 1( 0) + 0 on 23;
+  architecture testbench of ps_ff_tb at 7( 82) + 0 on 24;
+file . "D_Latch.vhdl" "bd99ec5ace5f4c59be7ea539e8e3d827eba3ded8" "20251122124523.993":
+  entity d_latch at 1( 0) + 0 on 19;
+  architecture behavioral of d_latch at 11( 157) + 0 on 20;
+file . "and_gate.vhdl" "a4ee51d0f52374ee9dfc03c65b5cc7c331703bcf" "20251122124523.902":
+  entity and_gate at 2( 1) + 0 on 15;
+  architecture rtl of and_gate at 12( 185) + 0 on 16;
+file . "not_gate.vhdl" "ae4bb87634b65c0697f403b7f8fabf261ae2f3a0" "20251122124523.798":
+  entity not_gate at 1( 0) + 0 on 11;
+  architecture rtl of not_gate at 11( 150) + 0 on 12;
+file . "norgate.vhdl" "9356d8e23482414ea762ec223d4b604120ac6280" "20251122124523.855":
+  entity norgate at 1( 0) + 0 on 13;
+  architecture rtl of norgate at 13( 283) + 0 on 14;
+file . "SR_Latch.vhdl" "1ab87ce0a26bcf30704195f3adee32a8453cd7c6" "20251122124523.947":
+  entity sr_latch at 1( 0) + 0 on 17;
+  architecture behavioral of sr_latch at 11( 161) + 0 on 18;
+file . "ps_ff.vhdl" "5902a7aed843f9c3d2bdd2c53bf36e3a8923457f" "20251122124524.043":
+  entity ps_ff at 1( 0) + 0 on 21;
+  architecture behavioral of ps_ff at 11( 158) + 0 on 22;
