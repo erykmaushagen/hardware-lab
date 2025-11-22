@@ -81,7 +81,7 @@ begin
     R <= '1';
     wait for 10 ns;
     S <= '0';
-    R <= '';
+    R <= '0';
     wait for 10 ns;
 
     -- Invalid: beide '1' (bei NOR-Latch problematisch)
