@@ -1,40 +1,41 @@
 library ieee;
-  use ieee.std_logic_1164.all;
+use ieee.std_logic_1164.all;
 
-entity ps_ff_tb is
+entity ps_reset_ff_tb is
 end entity;
 
-architecture testbench of ps_ff_tb is
+architecture testbench of ps_reset_ff_tb is
 
   -- Baustein-Deklaration
-  component ps_ff is
+  component ps_reset_ff is
     port (
-      d, clk, r : in  std_logic;
+      d, clk, r : in std_logic;
       Q, not_Q  : out std_logic
     );
   end component;
 
   -- Signaldeklaration
-  signal d, clk, r : std_logic;
+  signal d, clk, r : std_logic := '0';
   signal Q, not_Q  : std_logic;
 
 begin
   -- Instanziere das zu testende PS-D-Flip-Flop mit Reset
-  ps_ff_inst: ps_ff
-    port map (
-      d     => d,
-      r     => r,
-      clk   => clk,
-      Q     => Q,
-      not_Q => not_Q
-    );
+  ps_ff_inst : ps_reset_ff
+  port map
+  (
+    d     => d,
+    r     => r,
+    clk   => clk,
+    Q     => Q,
+    not_Q => not_Q
+  );
 
   -- Testprozess
   process
   begin
 
     -- Initialwerte
-    d <= '0';
+    d   <= '0';
     clk <= '0';
     wait for 10 ns;
 
@@ -64,6 +65,15 @@ begin
     r <= '1';
     wait for 10 ns;
     clk <= '1';
+    wait for 10 ns;
+    clk <= '0';
+
+    -- setze wieder zurück auf "00"
+    d <= '0';
+    wait for 10 ns;
+    r <= '0';
+    wait for 10 ns;
+    clk <= '0';
     wait for 10 ns;
     clk <= '0';
 
