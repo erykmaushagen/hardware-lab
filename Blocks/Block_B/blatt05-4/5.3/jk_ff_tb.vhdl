@@ -42,41 +42,34 @@ begin
   testing: process
   begin
 
-    reset <= '1';
-    wait for 25 ns;
-    reset <= '0';
-    wait for 20 ns;
+    --
+    clk <= '0';
+    wait for 10 ns;
 
-    -- J,K = 0,0  (Hold)
-    J <= '0';
-    K <= '0';
-    wait for 40 ns;
+    clk <= '1';
+    wait for 10 ns;
 
-    -- J,K = 0,1 (Reset)
-    J <= '0';
-    K <= '1';
-    wait for 40 ns;
+    clk <= '0';
+    wait for 10 ns;
 
-    -- J,K = 1,0 (Set)
-    J <= '1';
-    K <= '0';
-    wait for 40 ns;
+    clk <= '1';
+    wait for 10 ns;
 
-    -- J,K = 1,1 (Toggle)
-    J <= '1';
-    K <= '1';
-    wait for 40 ns;
+    clk <= '0';
+    wait for 10 ns;
 
-    -- noch ein Toggle
-    J <= '1';
-    K <= '1';
-    wait for 40 ns;
+    clk <= '1';
+    wait for 10 ns;
 
-    -- Ende: wieder Reset
-    reset <= '1';
-    wait for 30 ns;
-    reset <= '0';
-    wait;
+    clk <= '0';
+    wait for 10 ns;
+
+    clk <= '1';
+    wait for 10 ns;
+
+    clk <= '0';
+    wait for 10 ns;
+
   end process;
 
 end architecture;
