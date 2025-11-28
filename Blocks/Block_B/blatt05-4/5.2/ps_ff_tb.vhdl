@@ -19,7 +19,7 @@ architecture testbench of ps_ff_tb is
   signal Q, not_Q : std_logic;
 
 begin
-  -- Instanziere das zu testende PS-Flip-Flop
+  -- Instanziere das zu testende PS-D-Flip-Flop
   ps_ff_inst : ps_ff
   port map
   (
