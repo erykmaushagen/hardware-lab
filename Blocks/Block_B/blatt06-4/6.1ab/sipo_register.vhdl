@@ -25,31 +25,31 @@ begin
       d     => serial_in,
       clk   => clock,
       reset => clear,
-      Q     => Q(1)
+      Q     => Q(0)
     );
   -- instanziierung des zweiten flipflops
   DFF2: DFlipFlop
+    port map (
+      d     => Q(0),
+      clk   => clock,
+      reset => clear,
+      Q     => Q(1)
+    );
+  -- instanziierung des dritten flipflops
+  DFF3: DFlipFlop
     port map (
       d     => Q(1),
       clk   => clock,
       reset => clear,
       Q     => Q(2)
     );
-  -- instanziierung des dritten flipflops
-  DFF3: DFlipFlop
+  -- instanziierung des vierten flipflops
+  DFF4: DFlipFlop
     port map (
       d     => Q(2),
       clk   => clock,
       reset => clear,
       Q     => Q(3)
-    );
-  -- instanziierung des vierten flipflops
-  DFF4: DFlipFlop
-    port map (
-      d     => Q(3),
-      clk   => clock,
-      reset => clear,
-      Q     => ouQ(4)
     );
 
 end architecture;
