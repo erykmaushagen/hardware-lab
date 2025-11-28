@@ -1,41 +1,102 @@
-Library IEEE;
-USE IEEE.Std_logic_1164.all;
+library IEEE;
+  use IEEE.Std_logic_1164.all;
 
 entity piso_register is
-    port(
-        pinput : in std_logic_vector(3 downto 0);
-        Clk : in std_logic;
-        clear : in std_logic;
-        write : in std_logic; -- write auf 1: es kann geschrieben werden. 
-        sout : out std_logic
-    );
-end piso_register;
+  port (
+    pinput : in  std_logic_vector(3 downto 0);
+    Clk    : in  std_logic;
+    clear  : in  std_logic;
+    write  : in  std_logic; -- write auf 1: es kann geschrieben werden. 
+    sout   : out std_logic
+  );
+end entity;
 
 architecture behavioral of piso_register is
-    component DFlipFlop is
-        port(
-            D : in std_logic;
-            Clk : in std_logic;
-            reset : in std_logic;
-            Q : out std_logic
-        );
-        end component;
+  component DFlipFlop is
+    port (
+      D     : in  std_logic;
+      Clk   : in  std_logic;
+      reset : in  std_logic;
+      Q     : out std_logic
+    );
+  end component;
 
-        -- ob paralle geschrieben oder seriel geschoben wird ist hier als 21mux implementiert 
-        component mux21 is
-            port(
-                i1 : IN std_logic;
-                i2 : IN std_logic;
-                sel : IN std_logic; 
-                y : OUT std_logic
-            );
-            end component;
- -- missing
+  -- ob paralle geschrieben oder seriel geschoben wird ist hier als 21mux implementiert 
+  component mux21 is
+    port (
+      i1  : in  std_logic;
+      i2  : in  std_logic;
+      sel : in  std_logic;
+      y   : out std_logic
+    );
+  end component;
+  -- missing
+  signal q0, q1, q2     : std_logic;
+  signal d0, d1, d2, d3 : std_logic;
 
+begin
 
-    begin
-        
--- missing
+  -- and-gatter für write und p1
+  d0 <= pinput(0) and write;
+  -- erster flipflop
+  DFlipFlop_0: DFlipFlop
+    port map (
+      D     => d0,
+      Clk   => Clk,
+      reset => clear,
+      Q     => q0
+    );
 
-    end behavioral;
+  -- mux für zweiten flipflop
+  mux1: mux21
+    port map (
+      i1  => pinput(1),
+      i2  => q0,
+      sel => write,
+      y   => d1
+    );
+  -- zweiter flipflop
+  DFlipFlop_1: DFlipFlop
+    port map (
+      D     => d1,
+      Clk   => Clk,
+      reset => clear,
+      Q     => q1
+    );
+
+  -- mux für dritten flipflop
+  mux2: mux21
+    port map (
+      i1  => pinput(2),
+      i2  => q1,
+      sel => write,
+      y   => d2
+    );
+  -- dritter flipflop
+  DLFlipFlop_2: DFlipFlop
+    port map (
+      D     => d2,
+      Clk   => Clk,
+      reset => clear,
+      Q     => q2
+    );
+
+  -- mux für vierten flipflop
+  mux3: mux21
+    port map (
+      i1  => pinput(3),
+      i2  => q2,
+      sel => write,
+      y   => d3
+    );
+  -- vierter flipflop
+  DFlipFlop_3: DFlipFlop
+    port map (
+      D     => d3,
+      Clk   => Clk,
+      reset => clear,
+      Q     => sout
+    );
+
+end architecture;
 
