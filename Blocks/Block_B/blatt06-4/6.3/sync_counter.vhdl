@@ -1,9 +1,9 @@
 library ieee;
-  use ieee.std_logic_1164.all;
+use ieee.std_logic_1164.all;
 
 entity sync_counter is
   port (
-    reset, clk, C, D : in  std_logic;
+    reset, clk, C, D : in std_logic;
     q1, q0           : out std_logic
   );
 end entity;
@@ -11,7 +11,7 @@ end entity;
 architecture bh of sync_counter is
   component jk_flipflop is
     port (
-      j, k, clk, reset : in  std_logic;
+      j, k, clk, reset : in std_logic;
       Q                : out std_logic
     );
   end component;
@@ -28,26 +28,27 @@ begin
   k0 <= C and (D or (not z1));
 
   -- first flipflop
-  JK_FF_0: jk_flipflop
-    port map (
-      j     => j0,
-      k     => k0,
-      clk   => clk,
-      reset => reset,
-      Q     => z0
-    );
+  JK_FF_0 : jk_flipflop
+  port map
+  (
+    j     => j0,
+    k     => k0,
+    clk   => clk,
+    reset => reset,
+    Q     => z0
+  );
 
   -- second flipflop
-  JK_FF_1: jk_flipflop
-    port map (
-      j     => j1,
-      k     => k1,
-      clk   => clk,
-      reset => reset,
-      Q     => z1
-    );
+  JK_FF_1 : jk_flipflop
+  port map
+  (
+    j     => j1,
+    k     => k1,
+    clk   => clk,
+    reset => reset,
+    Q     => z1
+  );
   q0 <= z0;
   q1 <= z1;
 
 end architecture;
-

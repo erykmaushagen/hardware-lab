@@ -1,0 +1,10 @@
+v 4
+file . "sync_counter.vhdl" "450e7ea5539626c90b939611367e7e65712434c2" "20251129174951.710":
+  entity sync_counter at 1( 0) + 0 on 51;
+  architecture bh of sync_counter at 11( 168) + 0 on 52;
+file . "jk_flipflop.vhdl" "c85aebb8a58be123686ea203326afe7f3fefd640" "20251129174951.649":
+  entity jk_flipflop at 1( 0) + 0 on 49;
+  architecture bh of jk_flipflop at 11( 172) + 0 on 50;
+file . "sync_counter_c_tb.vhdl" "3a7343411cef4fd80b30748d792065dff702588d" "20251129174951.767":
+  entity sync_counter_c_tb at 1( 0) + 0 on 53;
+  architecture tb of sync_counter_c_tb at 7( 96) + 0 on 54;
