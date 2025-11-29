@@ -1,2 +1,2 @@
-python vhdl_script.py DFlipFlop.vhdl robot_sipo.vhdl robot_sipo_tb.vhdl
+python vhdl_script.py robot.vhdl robot_tb.vhdl
  
