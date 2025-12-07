@@ -31,7 +31,7 @@ begin
 
     x <= "1001";
     y <= "1101";
-    wait for 10 ns; -- expected z = "1001000"
+    wait for 10 ns; -- expected z = "111010"
 
     x <= "1001";
     y <= "0111";
