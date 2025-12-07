@@ -1,0 +1,13 @@
+v 4
+file . "parallel_mult_tb.vhdl" "583c62e39ba710fec5af3ca4972c4995291ab07c" "20251207130612.890":
+  entity parallel_mult_tb at 1( 0) + 0 on 19;
+  architecture rtl of parallel_mult_tb at 7( 84) + 0 on 20;
+file . "parallel_mult.vhdl" "bb4db546a33ae54afc7ef58182929645d755f3c5" "20251207130612.787":
+  entity parallel_mult at 1( 0) + 0 on 11;
+  architecture rtl of parallel_mult at 15( 408) + 0 on 12;
+  entity block_1 at 103( 3293) + 0 on 13;
+  architecture rtl of block_1 at 114( 3481) + 0 on 14;
+  entity block_2 at 120( 3601) + 0 on 15;
+  architecture rtl of block_2 at 130( 3756) + 0 on 16;
+  entity block_3 at 139( 3948) + 0 on 17;
+  architecture rtl of block_3 at 149( 4097) + 0 on 18;
