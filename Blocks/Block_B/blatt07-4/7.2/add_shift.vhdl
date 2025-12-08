@@ -69,11 +69,9 @@ architecture behavioral of add_shift is
   signal SISO_R_in, SISO_R_out                                   : std_logic;
   -- SIPO_L_in: Serieller Eingang des SIPO_L Registers (vom Multiplikand Register zum SIPO_L Register)
   signal SIPO_L_in : std_logic;
+  signal counter   : integer range 0 to 4 := 0; -- für 4 Iterationen des Automaten, für 4-Bit Multiplikation
 
   signal clock : std_logic := '0';
-
-  signal counter : integer range 0 to 4 := 0;
-
 begin
   multiplikand_register: SIPO_L
     port map (initial_SIPO, SIPO_L_in, control_shift, control_clear, wire_SIPO_L_adder);
@@ -86,17 +84,19 @@ begin
     port map (wire_PIPO_adder, wire_SIPO_L_adder, control_add, wire_adder_PIPO);
 
   -- Implemierung des Automaten für den Add-Shift Adder (fehlt)
-  -- ************** HIER ERFOLGT DIE IMPLEMENTIERUNG DES AUTOMATEN **************
-  -- ************** HIER ERFOLGT DIE IMPLEMENTIERUNG DES AUTOMATEN **************
+  -- ************** IMPLEMENTIERUNG DES AUTOMATEN **************
 
-  -- Taktgenerierung (wird später in Testbench ausgelagert)
-  clock <= not clock after 10 ns;
-
-  -- Ein einzelner Prozess für den gesamten Automaten
-  process
+  -- Prozess 1: Getakteter Zustandsübergang
+  process (clock)
   begin
+    if rising_edge(clock) then
+      aktuellerZ <= naechsterZ;
+    end if;
+  end process;
 
-    wait until rising_edge(clock);
+  -- Prozess 2: Kombinatorische Logik (Ausgangslogik und nächster Zustand)
+  process (aktuellerZ, SISO_R_out, counter, p_in_1, p_in_2)
+  begin
     -- Standardwerte für Steuerleitungen
     control_add <= '0';
     control_save <= '0';
@@ -104,14 +104,15 @@ begin
     control_clear <= '0';
     SIPO_L_in <= '0';
     SISO_R_in <= '0';
+    naechsterZ <= aktuellerZ; -- Default: bleibe im aktuellen Zustand
 
     case aktuellerZ is
       when start =>
+        -- Initialisierung aller Register
         control_clear <= '1';
         initial_PIPO <= "00000000";
         initial_SIPO <= "0000" & p_in_1;
         initial_SISO <= "0000" & p_in_2;
-        counter <= 0;
         naechsterZ <= check;
 
       when check =>
@@ -130,7 +131,6 @@ begin
         control_shift <= '1';
         SIPO_L_in <= '0';
         SISO_R_in <= '0';
-        counter <= counter + 1; -- Counter inkrementieren!
         naechsterZ <= check_finish;
 
       when check_finish =>
@@ -139,18 +139,23 @@ begin
         else
           naechsterZ <= check;
         end if;
-
     end case;
-
-    -- Zustandsübergang
-    aktuellerZ <= naechsterZ;
-
   end process;
 
-  parallel_out <= wire_PIPO_adder; -- Ausgang des PIPO Registers als Ausgang des Add-Shift Adders
-end architecture;
+  -- Prozess 3: Counter-Update (getaktet)
+  process (clock)
+  begin
+    if rising_edge(clock) then
+      if aktuellerZ = start then
+        counter <= 0;
+      elsif aktuellerZ = shift then
+        counter <= counter + 1;
+      end if;
+    end if;
+  end process;
 
---  BIS HIER HIN BITTE
+  parallel_out <= wire_PIPO_adder;
+end architecture;
 
 -- Implementierung eines addierers auf Basis eines ripple-carry-adders, jedoch angepasst an die Aufgabe
 library ieee;
