@@ -1,3 +1,2 @@
 python vhdl_script.py ha.vhdl fa.vhdl rca.vhdl add_shift.vhdl add_shift_tb.vhdl 
-
- 
+python vhdl_script.py test.vhdl test_tb.vhdl 
